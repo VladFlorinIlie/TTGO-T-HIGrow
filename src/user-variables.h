@@ -25,7 +25,7 @@ const bool USE_18B20_TEMP_SENSOR = false;
 // Soil defaults - change them to your calibration data
 int soil_min = 1439;
 int soil_max = 3381;
-bool calibrate_soil = true;
+bool calibrate_soil = false;
 
 // Salt/Fertilizer recommandation break points. You can change these according to your own calibration measurements.
 int fertil_needed = 200;

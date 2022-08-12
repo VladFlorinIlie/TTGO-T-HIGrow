@@ -45,7 +45,8 @@
 //           rel = "4.2.2"; // For the Greenhouse auto watering, the plantValveNo have been introduced. (Greenhouse auto watering is in development)
 //           rel = "4.2.3"; // Removed the battery day counter - for good, use BeardedTingers solution if you need it.
 //           rel = "4.3.1"; // Finally the days since last charging works correctly.
-const String rel = "4.3.2"; // Corrected an error in DST.
+//           rel = "4.3.2"; // Corrected an error in DST.
+const String rel = "5.0.0"; // Changed back to Arduino EDI (can also still be used with VS Code - Platformio), added unix timestamp, changed soil and salt variable types.
 
 // mqtt constants
 WiFiClient wifiClient;
@@ -76,9 +77,9 @@ struct Config
   float lux;
   float temp;
   float humid;
-  float soil;
+  uint8_t soil;
   float soilTemp;
-  float salt;
+  uint8_t salt;
   String saltadvice;
   float bat;
   String batcharge;

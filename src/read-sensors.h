@@ -2,7 +2,7 @@
 
 // READ Salt
 // I am not quite sure how to read and use this number. I know that when put in water wich a DH value of 26, it gives a high number, but what it is and how to use ??????
-uint32_t readSalt()
+uint8_t readSalt()
 {
   uint8_t samples = 120;
   uint32_t humi = 0;
@@ -17,10 +17,8 @@ uint32_t readSalt()
     delay(2);
   }
   std::sort(array, array + samples);
-  for (int i = 0; i < samples; i++)
+  for (int i = 1; i < samples - 1; i++)
   {
-    if (i == 0 || i == samples - 1)
-      continue;
     humi += array[i];
   }
   humi /= samples - 2;
@@ -28,7 +26,7 @@ uint32_t readSalt()
 }
 
 // READ Soil
-uint16_t readSoil()
+uint8_t readSoil()
 {
   Serial.println(soil_max);
   uint16_t soil = analogRead(SOIL_PIN);
@@ -66,5 +64,5 @@ float readBattery()
   Serial.print("Battery Voltage: ");
   Serial.println(battery_voltage);
   battery_voltage = battery_voltage * 100;
-  return map(battery_voltage, 416, 290, 100, 0);
+  return map(battery_voltage, 392, 280, 100, 0);
 }
