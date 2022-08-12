@@ -1,6 +1,8 @@
   
   // The formattedDate comes with the following format:
   // 2018-05-28T16:00:13Z
+  // Get the UNIX timestamp
+  config.unixTimestamp = timeClient.getEpochTime();
   // We need to extract date and time
   formattedDate = timeClient.getFormattedDate();
   // Extract date
@@ -72,6 +74,8 @@
     }
     // The formattedDate comes with the following format:
     // 2018-05-28T16:00:13Z
+    // Get the UNIX timestamp
+    config.unixTimestamp = timeClient.getEpochTime();
     // We need to extract date and time
     formattedDate = timeClient.getFormattedDate();
     // Extract date

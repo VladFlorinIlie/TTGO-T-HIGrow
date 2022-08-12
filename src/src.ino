@@ -68,6 +68,7 @@ bool bme_found = false;
 //json construct setup
 struct Config
 {
+  unsigned long unixTimestamp;
   String date;
   String time;
   int bootno;
@@ -111,6 +112,7 @@ DS18B20 temp18B20(DS18B20_PIN);
 
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP);
+unsigned long unixTimestamp;
 String formattedDate;
 String dayStamp;
 String timeStamp1;

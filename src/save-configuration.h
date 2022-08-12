@@ -33,6 +33,7 @@ void saveConfiguration(const Config & config) {
   JsonObject plant = root.createNestedObject("plant");
   plant[device_name] = chipId;
   plant["sensorname"] = plant_name;
+  plant["unixTimestamp"] = config.unixTimestamp;
   plant["date"] = config.date;
   plant["time"] = config.time;
   plant["sleep5Count"] = config.sleep5no;
