@@ -1,8 +1,19 @@
+  // Get the UNIX timestamp
+  while (!timeClient.update())
+  {
+    timeClient.forceUpdate();
+  }
+  config.unixTimestamp = timeClient.getEpochTime();
+
+  // Compute the human readable date and time representation
+  timeClient.setTimeOffset(gmtOffset_sec);
+  while (!timeClient.update())
+  {
+    timeClient.forceUpdate();
+  }
   
   // The formattedDate comes with the following format:
   // 2018-05-28T16:00:13Z
-  // Get the UNIX timestamp
-  config.unixTimestamp = timeClient.getEpochTime();
   // We need to extract date and time
   formattedDate = timeClient.getFormattedDate();
   // Extract date
@@ -74,8 +85,6 @@
     }
     // The formattedDate comes with the following format:
     // 2018-05-28T16:00:13Z
-    // Get the UNIX timestamp
-    config.unixTimestamp = timeClient.getEpochTime();
     // We need to extract date and time
     formattedDate = timeClient.getFormattedDate();
     // Extract date

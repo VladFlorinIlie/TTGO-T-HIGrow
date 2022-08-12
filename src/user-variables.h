@@ -62,6 +62,9 @@ int        port     = 1883;
 const char mqttuser[] = ""; //add eventual mqtt username
 const char mqttpass[] = ""; //add eventual mqtt password
 
+// Battery percentage warning
+int batteryPercentageWarning = 10;
+
 // *******************************************************************************************************************************
 // END userdefined data
 // *******************************************************************************************************************************

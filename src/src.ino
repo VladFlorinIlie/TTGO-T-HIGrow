@@ -146,17 +146,8 @@ void setup()
 
   Serial.println(WiFi.macAddress());
   Serial.println(WiFi.localIP());
-  //  configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
-  //  timeClient.setTimeOffset(7200);
-
-  timeClient.setTimeOffset(gmtOffset_sec);
-  while (!timeClient.update())
-  {
-    timeClient.forceUpdate();
-  }
 
 #include "time-management.h"
-  //#include <battChargeDays.h>
   if (dht_found)
   {
     dht.begin();
@@ -317,6 +308,12 @@ void setup()
   //Increment boot number and print it every reboot
   ++bootCount;
   Serial.println("Boot number: " + String(bootCount));
+
+  // Battery is too low -> turn on warning led
+  if (bat < batteryPercentageWarning)
+  {
+    digitalWrite(led, 1);
+  }
 
   //Go to sleep now
   delay(1000);
