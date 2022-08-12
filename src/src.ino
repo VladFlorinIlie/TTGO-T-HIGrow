@@ -16,7 +16,7 @@
 #include <esp_wifi.h>
 #include <esp_bt.h>
 #include "user-variables.h"
-#include <18B20_class.h>
+#include "18B20_class.h"
 #include <Adafruit_BME280.h>
 
 // Logfile on SPIFFS
@@ -117,21 +117,21 @@ String timeStamp1;
 
 // Start Subroutines
 
-#include <file-management.h>
-#include <go-to-deep-sleep.h>
-#include <get-string-value.h>
-#include <read-sensors.h>
-#include <save-configuration.h>
-#include <connect-to-network.h>
-#include <read-batt-info.h>
-#include <floatConv.h>
+#include "file-management.h"
+#include "go-to-deep-sleep.h"
+#include "get-string-value.h"
+#include "read-sensors.h"
+#include "save-configuration.h"
+#include "connect-to-network.h"
+#include "read-batt-info.h"
+#include "floatConv.h"
 
 void setup()
 {
   Serial.begin(115200);
   Serial.println("Void Setup");
 
-#include <module-parameter-management.h>
+#include "module-parameter-management.h"
 
   // Start WiFi and update time
   connectToNetwork();
@@ -153,7 +153,7 @@ void setup()
     timeClient.forceUpdate();
   }
 
-#include <time-management.h>
+#include "time-management.h"
   //#include <battChargeDays.h>
   if (dht_found)
   {

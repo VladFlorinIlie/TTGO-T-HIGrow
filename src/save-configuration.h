@@ -20,7 +20,7 @@ void saveConfiguration(const Config & config) {
     }
   }
   Serial.println("chipId " + chipId);
-  const String topicStr = device_name + "/" + chipId;
+  const String topicStr = device_name + "/" + chipId + "/" + plant_name;
   const char* topic = topicStr.c_str();
   Serial.println(topic);
   Serial.println(ssid);
@@ -103,4 +103,3 @@ void saveConfiguration(const Config & config) {
   }
   Serial.println();
 }
-
